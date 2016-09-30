@@ -1,7 +1,7 @@
 class CS6084ATolani {
 	public static void main(String[] args) {
 		myStack operatorsStack = new myStack(10);	
-		String[] infixExpressions = {"a+b","a+b","a+b","a+b","a+b","a+b"};
+		String[] infixExpressions = {"a+b* c ^d+b*a","a+b","a+b","a+b","a+b","a+b"};
 		String infixExpression;
 		for (int k = 0; k< infixExpressions.length; k++) {
 			infixExpression = infixExpressions[k];
@@ -32,6 +32,16 @@ class CS6084ATolani {
 							operatorsStack.push(currentChar);
 						}
 						break;
+						case '^' :
+						if(operatorsStack.isEmpty() || operatorsStack.topElement() == '+' || operatorsStack.topElement() == '-'|| operatorsStack.topElement() == '*')
+							operatorsStack.push(currentChar);
+						else{
+							while(!operatorsStack.isEmpty() && operatorsStack.topElement() != '+' && operatorsStack.topElement() != '-' && operatorsStack.topElement() == '*')
+								output += (char)operatorsStack.pop();
+							operatorsStack.push(currentChar);
+						}
+						break;
+						case ' ' : break;
 					}
 				}
 			}
