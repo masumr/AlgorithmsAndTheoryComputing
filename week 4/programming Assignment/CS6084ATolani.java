@@ -1,10 +1,7 @@
 
 import java.util.*;
 import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import java.text.*;
 
 class CS6084ATolani {
 	public static void main(String[] args) throws IOException{
@@ -126,6 +123,7 @@ class Input{
 }
 class MyInfo{
   String todaysDate = "29/SEP/2016";
+  String assignmentNumber = "4A";
 
   public void identity(){
   // My info and class and assigmnegt date and all
@@ -140,7 +138,7 @@ class MyInfo{
       catch (ParseException ex) {
           System.out.print(ex);
       }
-    System.out.println("Assingment(3A) done on : "+dateformat3.format(assingmentDate));
+    System.out.println("Assingment " +assignmentNumber+ "\nDone on : "+dateformat3.format(assingmentDate));
     System.out.println("--------------------------------------------------------");
   }
 }
