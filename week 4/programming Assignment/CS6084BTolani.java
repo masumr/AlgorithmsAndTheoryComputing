@@ -330,7 +330,7 @@ public class CS6084BTolani{
 
 		new MyInfo().identity();
 		//to read all the data
-		Input ip = new Input("inputData4B.txt");
+		Input ip = new Input("infixData4B.txt");
 
 		//expression 1
 		System.out.print("Given Expression : ");
