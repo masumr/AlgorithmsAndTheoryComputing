@@ -32,11 +32,10 @@ class CS6085BTolani {
 		int x = 10;//search element
 		System.out.println("Search for Number " + x +" : "+searchFor(one.root,x));
 		System.out.println();
-		setLargestNumberOfNodes(one.root);
-		level=0;
 		levelWithLargestNumberOfNodes(one.root);
-		//System.out.println("Max Number of Nodes in any Level : "+(numberOfNodesInLevel+1));
-		//System.out.println(levelWithMaxNodes);
+		System.out.println("Max Number of Nodes in any Level : "+(numberOfNodesInLevel+1));
+		System.out.println("\nlevel with max nodes : "+levelWithMaxNodes);
+		System.out.println();
 	}
 	static int numberOfNodes(Lab5BTNode root)
 	{
@@ -88,29 +87,6 @@ class CS6085BTolani {
 				return true;
 		return false;
 	}
-	static void setLargestNumberOfNodes(Lab5BTNode root)
-	{
-		right=0;
-		left = 0;
-		if (root == null) return;
-		else
-		{
-			setLargestNumberOfNodes(root.right);
-			right++;
-			
-			setLargestNumberOfNodes(root.left);
-			left++;
-			level++;
-			
-			if((left+right) > numberOfNodesInLevel)
-			{
-				numberOfNodesInLevel = left+right;
-
-			}
-
-		}
-
-	}
 	static void levelWithLargestNumberOfNodes(Lab5BTNode root)
 	{
 		right=0;
@@ -123,14 +99,19 @@ class CS6085BTolani {
 			
 			levelWithLargestNumberOfNodes(root.left);
 			left++;
-			level++;
 			
-			if((left+right) == numberOfNodesInLevel)
+			
+			if((left+right) > numberOfNodesInLevel)
 			{
-				System.out.println("level With largest Nodes: "+ (level));
-
+				if(level > levelWithMaxNodes)
+				{
+					levelWithMaxNodes = level;
+				}
+				numberOfNodesInLevel = left+right;
+				
 			}
-
+			level++;
+			//System.out.println(numberOfNodesInLevel+1);
 		}
 
 	}
